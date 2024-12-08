@@ -49,6 +49,11 @@ function App() {
 		setShowForm(false)
 	}
 
+	function handleLogout() {
+		API.removeToken()
+		setShowForm(false)
+	}
+
 
 	if (!location) {
 		return <div>Loading...</div>
@@ -57,7 +62,7 @@ function App() {
 	console.log(isLoggedIn)
 	return (
 		<>
-			{/* <NavBar /> */}
+			<NavBar handleShow={handleShow} logout={handleLogout} />
 			<main>
 				<ModalWrapper openState={[showForm, setShowForm]} >
 					{!isLoggedIn
