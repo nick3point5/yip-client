@@ -1,0 +1,14 @@
+.NavBar {
+  position: sticky;
+  background-color: aliceblue;
+  flex: 0 1 auto;
+  padding: 0 16px;
+	height: 4rem;
+}
+
+#navToolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+	align-items: center;
+}
