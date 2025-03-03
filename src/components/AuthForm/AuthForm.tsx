@@ -2,7 +2,7 @@ import "./AuthForm.css"
 import { useState } from "react"
 import { LoginForm } from "./LoginForm/LoginForm"
 import { SignupForm } from "./SignupForm/SignupForm"
-import { Button, Card, Container } from "@mui/material"
+import { Button } from "@mui/material"
 
 
 type Props = {

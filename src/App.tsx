@@ -8,31 +8,35 @@ import { API } from './api/API.ts'
 import { AuthForm } from './components/AuthForm/AuthForm.tsx'
 import { NavBar } from './components/NavBar/NavBar.tsx'
 
+
 type LocationType = {
 	lat: number
 	lon: number
 }
+
+async function getLocation() {
+	console.log("Getting location...")
+	return await new Promise<LocationType>((res, rej) =>  {
+		navigator.geolocation.getCurrentPosition((position) => {
+			res({
+				lat: position.coords.latitude,
+				lon: position.coords.longitude
+			})
+		}, rej)
+	})
+}
+
 function App() {
 	const [location, setLocation] = useState<LocationType | null>(null)
 	const [showForm, setShowForm] = useState(false)
 	const [refresh, setRefresh] = useState(true)
 	const isLoggedIn = !!API.getToken()
 
-	function getLocation() {
-		console.log("Getting location...")
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				setLocation({
-					lat: position.coords.latitude,
-					lon: position.coords.longitude,
-				})
-			})
-		}
-	}
-
 	useEffect(() => {
 		if (refresh) {
 			getLocation()
+				.then(newLocation => setLocation(newLocation))
+				.catch(err => console.error(err))
 			setRefresh(false)
 		}
 	}, [refresh, setRefresh])

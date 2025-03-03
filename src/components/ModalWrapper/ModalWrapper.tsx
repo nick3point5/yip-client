@@ -1,8 +1,7 @@
 import { Modal, Paper } from '@mui/material'
-
-import { StateArgumentType } from '@/types'
-
 import './ModalWrapper.css'
+
+type StateArgumentType<T> = [T, React.Dispatch<React.SetStateAction<T>>]
 
 type Props = {
   children: JSX.Element

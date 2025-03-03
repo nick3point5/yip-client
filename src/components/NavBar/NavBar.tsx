@@ -4,11 +4,8 @@ import {
 	AppBar,
 	Box,
 	Button,
-	Grid,
 	IconButton,
-	Input,
 	Menu,
-	Slider,
 	Toolbar,
 	Tooltip,
 	Typography,
@@ -43,16 +40,6 @@ export function NavBar({ handleShow, logout }: Props) {
 		logout()
 		handleCloseMenu()
 	}
-
-	const [value, setValue] = useState(30);
-
-  const handleSliderChange = (event: Event, newValue: number | number[]) => {
-    setValue(newValue as number);
-  }
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value === '' ? 0 : Number(event.target.value));
-  }
 
 	return (
 		<AppBar position="static" elevation={1} className={`NavBar`}>

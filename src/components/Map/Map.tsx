@@ -1,4 +1,4 @@
-import { LayersControl, MapContainer, Marker, Popup, TileLayer, Circle, LayerGroup, FeatureGroup, Rectangle } from 'react-leaflet'
+import { LayersControl, MapContainer, Marker, Popup, TileLayer, Circle, LayerGroup } from 'react-leaflet'
 import "./Map.css"
 import { LatLngExpression } from 'leaflet'
 import { PostsAPI } from '../../api/PostsAPI'
